@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="addForm">
+        <input type="text" id="wr" size="40" placeholder="Song name">
+        <input type="Button" id="addButton" value="Add Song">
+    </form>
+    
+    <ul id="playlist">
+    </ul>
+    <script>
+      let list=document.getElementById('playlist');
+      let button=document.getElementById('addButton');
+      let form=document.getElementById('addForm');
+      list.addEventListener('click', removeItems);
+      button.addEventListener('click',addItems);
+      function addItems(){
+          let input=document.getElementById('wr').value;
+          let li=document.createElement('li');
+          li.appendChild(document.createTextNode(input));
+          let deleteBtn=document.createElement('button');
+          deleteBtn.className='delete';
+          deleteBtn.appendChild(document.createTextNode('X'));
+          li.appendChild(deleteBtn);
+          list.appendChild(li);
+
+          li.style.listStyleType='none';
+          li.style.backgroundColor='#eee'
+          li.style.border='1px solid black';
+          li.style.borderRadius='3px';
+          li.style.marginLeft='0px'
+          li.style.width='500px'
+          deleteBtn.style.backgroundColor='red';
+          deleteBtn.style.color='white';
+          deleteBtn.style.marginLeft='460px';
+      }
+      function removeItems(e){
+        if(e.target.classList.contains('delete')){
+            let li=e.target.parentElement;
+            list.removeChild(li);
+        }
+          
+      }
+       
+    </script>
+</body>
+</html>

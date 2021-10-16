@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="list" onchange="image_swape()" >
+        <option value="jordan.png">Jordan</option>
+        <option value="england.png">England</option>
+        <option value="germany (1).png">Germany</option>
+    </select><br>
+        <img src="no-pictures.png" alt="" id="image">
+    <script>
+         function image_swape(){
+           let images=document.getElementById('image');
+           let list=document.getElementById('list');
+           images.src=list.value;
+           images.alt=list.innerHTML;
+         }
+    </script>
+</body>
+</html>

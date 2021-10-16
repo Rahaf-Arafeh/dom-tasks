@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sub{
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="form" onkeyup="check()">
+        <label for="pass">Password(min 6 characters):</label>
+        <input type="password" name="pass" id="passwords" value="">
+        <span id="messages" style="color: red;"></span>
+        <br><br>
+        <label for="conf">Repeat Password:</label>
+        <input type="password" name="pass" id="passwordss" value="">
+        <span id="messagess" style="color: red;"></span>
+        <br><br>
+        <input type="submit" value="Submit" id="sub">
+    </form>
+    <script>
+       function check(){
+       let p1=document.getElementById('passwords').value;
+       let p2=document.getElementById('passwordss').value;
+       let s=document.getElementById('sub');
+
+
+     if(p1.length <6){
+        document.getElementById('messages').innerHTML='Too Short';
+        document.getElementById('messagess').innerHTML='';
+    }
+   else if(p1.length >=6){
+        document.getElementById('messages').innerHTML='';
+        document.getElementById('messagess').innerHTML='';}
+        
+    if(p1 != p2){
+        document.getElementById('messagess').innerHTML="The two passwords don't match";
+    }
+    else if(p1==p2 && p1.length>=6){
+      s.style.visibility='visible';
+    }
+
+       }
+    </script>
+</body>
+</html>
